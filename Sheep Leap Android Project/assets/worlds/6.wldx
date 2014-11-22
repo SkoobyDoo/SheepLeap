@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level width="70" height="25" maxsheep="80" red="59" green="134" blue="235" stagetype="grass">
+	<entity x="-1500" y="-1050" type="goal" goaltype="cloud"/>
+	<entity x="1000" y="-600" type="wind" width="1000" height="1000" force="10"/>
+	<entity x="0" y="-600" type="wind" width="1000" height="1000" force="10"/>
+	<entity x="-1000" y="-600" type="wind" width="1000" height="1000" force="10"/>
+	<entity x="850" y="-150" type="bird" fromx="500" tox="1200" left="false"/>
+	<entity x="0" y="-150" type="bird" fromx="-500" tox="500" left="true"/>
+	<entity x="-1000" y="-150" type="bird" fromx="-1500" tox="-500" left="false"/>
+	<entity x="900" y="-700" type="bird" fromx="800" tox="1000" left="false"/>
+	<entity x="300" y="-500" type="bird" fromx="200" tox="400" left="false"/>
+	<entity x="-400" y="-700" type="bird" fromx="-500" tox="-300" left="true"/>
+	<entity x="100" y="-900" type="bird" fromx="0" tox="200" left="false"/>
+	<entity x="-700" y="-900" type="bird" fromx="-800" tox="-600" left="false"/>
+	<entity x="1000" y="-400" type="tree" treetype="0" sticky="false"/>
+	<entity x="500" y="-300" type="tree" treetype="0" sticky="false"/>
+	<entity x="500" y="-700" type="tree" treetype="0" sticky="false"/>
+	<entity x="0" y="-600" type="tree" treetype="0" sticky="false"/>
+	<entity x="-300" y="-300" type="tree" treetype="0" sticky="false"/>
+	<entity x="-400" y="-800" type="tree" treetype="1" sticky="false"/>
+	<entity x="-700" y="-400" type="tree" treetype="1" sticky="false"/>
+	<entity x="-1100" y="-800" type="tree" treetype="2" sticky="false"/>
+	<entity x="1500" y="-150" type="start"/>
+</level>

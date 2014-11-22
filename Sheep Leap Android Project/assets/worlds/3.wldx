@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level width="40" height="35" maxsheep="45" red="59" green="134" blue="235" stagetype="grass">
+	<entity x="0" y="-1450" type="goal" goaltype="cloud"/>
+	<entity x="0" y="-1000" type="wind" width="2000" height="200" force="30"/>
+	<entity x="175" y="-700" type="bird" fromx="125" tox="225" left="false"/>
+	<entity x="-175" y="-800" type="bird" fromx="-225" tox="-125" left="true"/>
+	<entity x="175" y="-900" type="bird" fromx="125" tox="225" left="false"/>
+	<entity x="-175" y="-1000" type="bird" fromx="-225" tox="-125" left="true"/>
+	<entity x="-200" y="-500" type="tree" treetype="0" sticky="false"/>
+	<entity x="-500" y="-600" type="tree" treetype="0" sticky="false"/>
+	<entity x="-600" y="-800" type="tree" treetype="0" sticky="false"/>
+	<entity x="300" y="-400" type="tree" treetype="0" sticky="false"/>
+	<entity x="700" y="-700" type="tree" treetype="2" sticky="false"/>
+	<entity x="0" y="-150" type="start"/>
+</level>

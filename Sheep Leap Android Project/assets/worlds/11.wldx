@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level width="40" height="30" maxsheep="35" red="55" green="215" blue="255" stagetype="sky">
+	<entity x="0" y="-200" type="goal" goaltype="cloud"/>
+	<entity x="0" y="-400" type="wind" width="2000" height="100" force="-50"/>
+	<entity x="0" y="-300" type="wind" width="2000" height="100" force="-50"/>
+	<entity x="0" y="-800" type="wind" width="2000" height="100" force="-50"/>
+	<entity x="0" y="-900" type="wind" width="2000" height="100" force="-50"/>
+	<entity x="500" y="-700" type="thunder"/>
+	<entity x="-500" y="-1000" type="thunder"/>
+	<entity x="500" y="-1350" type="cloud" treetype="0" sticky="true"/>
+	<entity x="-500" y="-1350" type="cloud" treetype="0" sticky="true"/>
+	<entity x="500" y="-1285" type="start"/>
+</level>

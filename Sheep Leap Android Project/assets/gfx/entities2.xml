@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="entities2.png" type="bitmap" width="966" height="621" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:4c1e6f9b5db1114563744b247140c48b$ -->
+    <textureregion id="0" src="asteroid_large.png" x="3" y="332" width="390" height="277" rotated="false" trimmed="true" srcx="10" srcy="10" srcwidth="400" srcheight="287"/>
+    <textureregion id="1" src="asteroid_medium.png" x="397" y="364" width="325" height="254" rotated="false" trimmed="true" srcx="0" srcy="29" srcwidth="345" srcheight="298"/>
+    <textureregion id="2" src="asteroid_small.png" x="385" y="149" width="180" height="151" rotated="false" trimmed="true" srcx="11" srcy="17" srcwidth="208" srcheight="179"/>
+    <textureregion id="3" src="blackhole.png" x="3" y="3" width="378" height="325" rotated="false" trimmed="true" srcx="12" srcy="10" srcwidth="400" srcheight="345"/>
+    <textureregion id="4" src="goalasteroidfull.png" x="385" y="3" width="578" height="142" rotated="false" trimmed="true" srcx="7" srcy="6" srcwidth="600" srcheight="156"/>
+    <textureregion id="5" src="pillow.png" x="569" y="149" width="392" height="211" rotated="false" trimmed="true" srcx="7" srcy="2" srcwidth="400" srcheight="213"/>
+</texture>

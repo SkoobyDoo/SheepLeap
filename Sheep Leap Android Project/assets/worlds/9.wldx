@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level width="30" height="30" maxsheep="25" red="55" green="215" blue="255" stagetype="sky">
+	<entity x="0" y="-1300" type="goal" goaltype="cloud"/>
+	<entity x="0" y="-1000" type="wind" width="1500" height="200" force="20"/>
+	<entity x="300" y="-400" type="thunder"/>
+	<entity x="-200" y="-600" type="thunder"/>
+	<entity x="400" y="-1200" type="thunder"/>
+	<entity x="0" y="-200" type="cloud" treetype="0" sticky="true"/>
+	<entity x="0" y="-275" type="start"/>
+</level>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="entities.png" type="bitmap" width="979" height="434" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:e83f3221ba3917189151a1852c86782a$ -->
+    <textureregion id="0" src="SheepLayered4.png" x="464" y="3" width="400" height="98" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="400" srcheight="98"/>
+    <textureregion id="1" src="Sheep_left2.png" x="710" y="402" width="17" height="24" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="17" srcheight="24"/>
+    <textureregion id="2" src="Sheep_right2.png" x="961" y="3" width="13" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="13" srcheight="22"/>
+    <textureregion id="3" src="birdfull.png" x="709" y="252" width="195" height="55" rotated="false" trimmed="true" srcx="0" srcy="0" srcwidth="195" srcheight="57"/>
+    <textureregion id="4" src="cloud_large.png" x="3" y="101" width="349" height="168" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="349" srcheight="168"/>
+    <textureregion id="5" src="cloud_medium.png" x="709" y="105" width="260" height="143" rotated="false" trimmed="true" srcx="8" srcy="0" srcwidth="270" srcheight="143"/>
+    <textureregion id="6" src="cloud_small.png" x="829" y="311" width="147" height="89" rotated="false" trimmed="true" srcx="4" srcy="0" srcwidth="151" srcheight="89"/>
+    <textureregion id="7" src="flower_0.png" x="674" y="402" width="32" height="24" rotated="false" trimmed="true" srcx="0" srcy="5" srcwidth="32" srcheight="32"/>
+    <textureregion id="8" src="flower_1.png" x="908" y="252" width="32" height="32" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="32" srcheight="32"/>
+    <textureregion id="9" src="flower_2.png" x="944" y="252" width="32" height="30" rotated="false" trimmed="true" srcx="0" srcy="0" srcwidth="32" srcheight="32"/>
+    <textureregion id="10" src="flower_3.png" x="277" y="329" width="24" height="28" rotated="false" trimmed="true" srcx="4" srcy="2" srcwidth="32" srcheight="32"/>
+    <textureregion id="11" src="flower_4.png" x="327" y="273" width="24" height="26" rotated="false" trimmed="true" srcx="4" srcy="3" srcwidth="32" srcheight="32"/>
+    <textureregion id="12" src="flower_5.png" x="868" y="72" width="28" height="28" rotated="false" trimmed="true" srcx="2" srcy="2" srcwidth="32" srcheight="32"/>
+    <textureregion id="13" src="goalcloudfull.png" x="3" y="3" width="457" height="94" rotated="false" trimmed="true" srcx="5" srcy="5" srcwidth="465" srcheight="106"/>
+    <textureregion id="14" src="raincloud2.png" x="356" y="271" width="314" height="160" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="314" srcheight="160"/>
+    <textureregion id="15" src="sheep_body2.png" x="868" y="3" width="89" height="65" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="89" srcheight="65"/>
+    <textureregion id="16" src="sheep_deadhead2.png" x="277" y="273" width="46" height="52" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="46" srcheight="52"/>
+    <textureregion id="17" src="startLoc.png" x="674" y="271" width="30" height="30" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="30" srcheight="30"/>
+    <textureregion id="18" src="tree_large_nest.png" x="356" y="105" width="349" height="162" rotated="false" trimmed="true" srcx="0" srcy="6" srcwidth="349" srcheight="168"/>
+    <textureregion id="19" src="tree_medium.png" x="3" y="273" width="270" height="139" rotated="false" trimmed="true" srcx="0" srcy="3" srcwidth="270" srcheight="143"/>
+    <textureregion id="20" src="tree_small.png" x="674" y="311" width="151" height="87" rotated="false" trimmed="true" srcx="0" srcy="2" srcwidth="151" srcheight="89"/>
+</texture>

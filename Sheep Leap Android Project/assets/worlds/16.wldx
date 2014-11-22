@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level width="40" height="30" maxsheep="40" red="0" green="0" blue="0" stagetype="space">
+	<entity x="-500" y="-1350" type="goal" goaltype="asteroid"/>
+	<entity x="200" y="-1000" type="blackhole" radius="45" range="1500" force="100"/>
+	<entity x="-500" y="-600" type="blackhole" radius="45" range="1500" force="100"/>
+	<entity x="650" y="-150" type="asteroid" treetype="0" sticky="true"/>
+	<entity x="650" y="-275" type="start"/>
+</level>
