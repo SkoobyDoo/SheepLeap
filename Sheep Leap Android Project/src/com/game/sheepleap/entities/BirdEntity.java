@@ -10,9 +10,11 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.game.sheepleap.ResourcesManager;
+import com.game.sheepleap.entities.base.PhysicsEntity;
+import com.game.sheepleap.entities.base.IThoughtfulEntity;
+import com.game.sheepleap.scenes.GameScene;
 
-public class BirdEntity extends PhysicsEntity implements ThoughtfulEntity {
+public class BirdEntity extends PhysicsEntity implements IThoughtfulEntity {
 
 	private static final FixtureDef BIRD_FIXTURE_DEF = PhysicsFactory.createFixtureDef(1, 1, 0, true);
 	private static final float BIRD_X_SPEED = 3.0f;
@@ -25,8 +27,8 @@ public class BirdEntity extends PhysicsEntity implements ThoughtfulEntity {
 
 	float leftBound, rightBound;
 
-	public BirdEntity(float x, float y, int left, int right, boolean goingLeft) {
-		super(x, y, ResourcesManager.getInstance().bird_region);
+	public BirdEntity(float x, float y, int left, int right, boolean goingLeft, GameScene scene) {
+		super(x, y, scene.bird_region);
 		mDir = (goingLeft) ? Direction.LEFT : Direction.RIGHT;
 		leftBound = left / 32f;
 		rightBound = right / 32f;

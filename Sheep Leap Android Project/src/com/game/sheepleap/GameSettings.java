@@ -3,8 +3,10 @@ package com.game.sheepleap;
 import java.util.Random;
 
 public class GameSettings {
-	
+
 	public static boolean hippieMode = false;
+	public static float effectVolume = .8f;
+	public static float musicVolume = .8f;
 	public static Random random = new Random();
 	
 	

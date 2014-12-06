@@ -11,7 +11,8 @@ import org.andengine.util.debug.Debug;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.game.sheepleap.ResourcesManager;
+import com.game.sheepleap.entities.base.PhysicsEntity;
+import com.game.sheepleap.scenes.GameScene;
 
 public class GoalEntity extends PhysicsEntity {
 
@@ -22,23 +23,23 @@ public class GoalEntity extends PhysicsEntity {
 	
 	public enum GoalType {CLOUD, ASTEROID, PILLOW};
 	
-	public static GoalEntity createGoal(float x, float y, GoalType type) { //assuming only one size of goal per level
+	public static GoalEntity createGoal(float x, float y, GoalType type, GameScene scene) { //assuming only one size of goal per level
 		GoalEntity g=null;
 		switch(type) {
 		case CLOUD:
 			goalWidth = 155;
 			goalHeight = 106;
-			g = new GoalEntity(x, y, ResourcesManager.getInstance().goalCloud_region);
+			g = new GoalEntity(x, y, scene.goalCloud_region);
 			break;
 		case ASTEROID:
 			goalWidth = 200;
 			goalHeight = 156;
-			g = new GoalEntity(x, y, ResourcesManager.getInstance().goalAsteroid_region);
+			g = new GoalEntity(x, y, scene.goalAsteroid_region);
 			break;
 		case PILLOW:
 			goalWidth = 400;
 			goalHeight = 213;
-			g = new GoalEntity(x, y, ResourcesManager.getInstance().goalPillow_region);
+			g = new GoalEntity(x, y, scene.goalPillow_region);
 			break;
 		}
 		g.mType = type;

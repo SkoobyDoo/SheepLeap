@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.andengine.audio.music.Music;
+import org.andengine.audio.sound.Sound;
 import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.extension.physics.box2d.PhysicsConnector;
@@ -19,10 +19,12 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.Joint;
 import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 import com.game.sheepleap.GameSettings;
-import com.game.sheepleap.ResourcesManager;
 import com.game.sheepleap.ResourcesManager.BleatType;
+import com.game.sheepleap.entities.base.PhysicsEntity;
+import com.game.sheepleap.entities.base.IThoughtfulEntity;
+import com.game.sheepleap.scenes.GameScene;
 
-public class SheepEntity extends PhysicsEntity implements ThoughtfulEntity {
+public class SheepEntity extends PhysicsEntity implements IThoughtfulEntity {
 	private static final FixtureDef SHEEP_FIXTURE_DEF = PhysicsFactory.createFixtureDef(2f, 0, 1f);
 	/*
 	 * private static final FixtureDef SHEEP_FIXTURE_DEF =
@@ -43,12 +45,12 @@ public class SheepEntity extends PhysicsEntity implements ThoughtfulEntity {
 
 	private float mTimeElectrocuted = 0f;
 
-	public SheepEntity(float pX, float pY) {
-		super(pX, pY, ResourcesManager.getInstance().sheep_region);
+	public SheepEntity(float pX, float pY, GameScene scene) {
+		super(pX, pY, scene.sheep_region);
 		mScene.attachChild(mSprite);
 		mScene.registerThoughtfulEntity(this);
 		
-		Music standardSound = mResourceManager.sheepBleat(BleatType.STANDARD);
+		Sound standardSound = mResourceManager.randomTypedSheepBleat(BleatType.STANDARD);
 		standardSound.play();
 	}
 
@@ -75,7 +77,7 @@ public class SheepEntity extends PhysicsEntity implements ThoughtfulEntity {
 		connectedSheep.add(other);
 
 		final RevoluteJointDef revoluteJointDef = new RevoluteJointDef();
-		revoluteJointDef.collideConnected = true;
+		revoluteJointDef.collideConnected = false;
 		revoluteJointDef.initialize(mBody, other.mBody, mBody.getWorldCenter());
 		sheepJoints.add(mPhysWorld.createJoint(revoluteJointDef));
 	}
@@ -129,7 +131,7 @@ public class SheepEntity extends PhysicsEntity implements ThoughtfulEntity {
 	}
 
 	public void kill(boolean stealthy) {
-		Music deathSound = mResourceManager.sheepBleat(BleatType.DEATH);
+		Sound deathSound = mResourceManager.randomTypedSheepBleat(BleatType.DEATH);
 		deathSound.play();
 		
 		final PhysicsConnector physicsConnector = this.mPhysWorld.getPhysicsConnectorManager().findPhysicsConnectorByShape(mSprite);
@@ -148,7 +150,7 @@ public class SheepEntity extends PhysicsEntity implements ThoughtfulEntity {
 	}
 
 	public void scare(float duration) {
-		Music nervousSound = mResourceManager.sheepBleat(BleatType.NERVOUS);
+		Sound nervousSound = mResourceManager.randomTypedSheepBleat(BleatType.NERVOUS);
 		nervousSound.play();
 		if (mScaredTime < duration) mScaredTime = duration;
 	}
@@ -165,19 +167,19 @@ public class SheepEntity extends PhysicsEntity implements ThoughtfulEntity {
 		final TimedLifeDynamicEntity sheepRightLeg2;
 
 		if (!GameSettings.hippieMode) {
-			sheepHead = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.sheepHead);
-			sheepTorso = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.sheepTorso);
-			sheepLeftLeg1 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.sheepLeftLeg);
-			sheepLeftLeg2 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.sheepLeftLeg);
-			sheepRightLeg1 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.sheepRightLeg);
-			sheepRightLeg2 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.sheepRightLeg);
+			sheepHead = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.sheepHead);
+			sheepTorso = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.sheepTorso);
+			sheepLeftLeg1 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.sheepLeftLeg);
+			sheepLeftLeg2 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.sheepLeftLeg);
+			sheepRightLeg1 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.sheepRightLeg);
+			sheepRightLeg2 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.sheepRightLeg);
 		} else {
-			sheepHead = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.flower0);
-			sheepTorso = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.flower1);
-			sheepLeftLeg1 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.flower2);
-			sheepLeftLeg2 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.flower3);
-			sheepRightLeg1 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.flower4);
-			sheepRightLeg2 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mResourceManager.flower5);
+			sheepHead = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.flower0);
+			sheepTorso = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.flower1);
+			sheepLeftLeg1 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.flower2);
+			sheepLeftLeg2 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.flower3);
+			sheepRightLeg1 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.flower4);
+			sheepRightLeg2 = new TimedLifeDynamicEntity(sheepX, sheepY, 5f, mScene.flower5);
 		}
 
 		ArrayList<TimedLifeDynamicEntity> bodyPartsList = new ArrayList<TimedLifeDynamicEntity>(6);
@@ -190,8 +192,8 @@ public class SheepEntity extends PhysicsEntity implements ThoughtfulEntity {
 		bodyPartsList.add(sheepRightLeg2);
 
 		for (TimedLifeDynamicEntity s : bodyPartsList) {
-			s.mBody.applyForceToCenter(((GameSettings.random.nextFloat() * GameSettings.random.nextInt(20)) - 10) * 40f,
-					((GameSettings.random.nextFloat() * GameSettings.random.nextInt(20)) - 5) * 40f);
+			s.applyForceToCenter(((GameSettings.random.nextFloat() * (GameSettings.random.nextInt(20)-10))) * 40f,
+					((GameSettings.random.nextFloat() * (GameSettings.random.nextInt(20)-10))) * 40f);
 			s.mBody.applyTorque(GameSettings.random.nextFloat() * 40f - 20);
 		}
 

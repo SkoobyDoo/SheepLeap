@@ -8,9 +8,12 @@ import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.WakeLockOptions;
-import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
+import org.andengine.engine.options.resolutionpolicy.FillResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.ui.activity.BaseGameActivity;
+
+import com.game.sheepleap.scenes.MainMenuScene;
+import com.game.sheepleap.scenes.SplashScene;
 
 import android.view.KeyEvent;
 
@@ -28,7 +31,9 @@ public class GameActivity extends BaseGameActivity {
 	@Override
 	public EngineOptions onCreateEngineOptions() {
 		mZoomCamera = new ZoomCamera(0, 0, 800, 480);
-	    EngineOptions engineOptions = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, new RatioResolutionPolicy(800, 480), this.mZoomCamera);
+		// TODO maybe handle phone resolutions/ratios a bit more gracefully than stretching... esp since this is a relatively low resolution
+		//EngineOptions engineOptions = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, new RatioResolutionPolicy(800, 480), this.mZoomCamera);
+	    EngineOptions engineOptions = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, new FillResolutionPolicy(), this.mZoomCamera);
 	    engineOptions.getAudioOptions().setNeedsMusic(true).setNeedsSound(true);
 	    engineOptions.setWakeLockOptions(WakeLockOptions.SCREEN_ON);
 	    return engineOptions;
@@ -44,7 +49,9 @@ public class GameActivity extends BaseGameActivity {
 
 	@Override
 	public void onCreateScene(OnCreateSceneCallback pOnCreateSceneCallback) throws Exception {
-		SceneManager.getInstance().createSplashScene(pOnCreateSceneCallback);
+		SplashScene.displayNew();
+		pOnCreateSceneCallback.onCreateSceneFinished(SceneManager.getInstance().getCurrentScene());
+		//SceneManager.getInstance().createSplashScene(pOnCreateSceneCallback);
 	}
 
 
@@ -53,10 +60,12 @@ public class GameActivity extends BaseGameActivity {
 			OnPopulateSceneCallback pOnPopulateSceneCallback) throws Exception {
 	    mEngine.registerUpdateHandler(new TimerHandler(2f, new ITimerCallback() 
 	    {
-	            public void onTimePassed(final TimerHandler pTimerHandler) 
+	            @Override
+				public void onTimePassed(final TimerHandler pTimerHandler) 
 	            {
 	                mEngine.unregisterUpdateHandler(pTimerHandler);
-	                SceneManager.getInstance().createMenuScene();
+	                //SceneManager.getInstance().createMenuScene();
+	                MainMenuScene.displayNew();
 	            }
 	    }));
 	    pOnPopulateSceneCallback.onPopulateSceneFinished();

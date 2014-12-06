@@ -11,8 +11,10 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.game.sheepleap.GameSettings;
+import com.game.sheepleap.entities.base.PhysicsEntity;
+import com.game.sheepleap.entities.base.IThoughtfulEntity;
 
-public class TimedLifeDynamicEntity extends PhysicsEntity implements ThoughtfulEntity {
+public class TimedLifeDynamicEntity extends PhysicsEntity implements IThoughtfulEntity {
 	private static final FixtureDef FIXTURE_DEF = PhysicsFactory.createFixtureDef(1, 0, 0.2f, false, GameSettings.CATEGORYBIT_BODYPART,
 			GameSettings.MASKBITS_BODYPART, (short) 0);
 

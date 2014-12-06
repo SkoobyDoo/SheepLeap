@@ -10,14 +10,15 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.game.sheepleap.ResourcesManager;
+import com.game.sheepleap.entities.base.PhysicsEntity;
+import com.game.sheepleap.scenes.GameScene;
 
 public class StartEntity extends PhysicsEntity {
 
 	private static final FixtureDef START_FIXTURE_DEF = PhysicsFactory.createFixtureDef(0, 0, 0, true);
 
-	public StartEntity(float x, float y) {
-		super(x, y, ResourcesManager.getInstance().start_region);
+	public StartEntity(float x, float y, GameScene scene) {
+		super(x, y, scene.start_region);
 	} 
 
 	@Override

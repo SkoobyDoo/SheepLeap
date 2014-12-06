@@ -13,20 +13,25 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.game.sheepleap.ResourcesManager;
+import com.game.sheepleap.entities.base.PhysicsEntity;
+import com.game.sheepleap.entities.base.IThoughtfulEntity;
+import com.game.sheepleap.scenes.GameScene;
 
-public class WindEntity extends PhysicsEntity implements ThoughtfulEntity {
+public class WindEntity extends PhysicsEntity implements IThoughtfulEntity {
 	private static final FixtureDef WIND_FIXTURE_DEF = PhysicsFactory.createFixtureDef(0, 0, 0, true);
 	
-	private static final float WIND_FORCE_CONSTANT = 20f;
+	private static final float WIND_FORCE_CONSTANT = 5f;
 	
 	public float mForce;
 	
 	Collection<PhysicsEntity> touchedThings = new LinkedList<PhysicsEntity>();
 
-	public WindEntity(float x, float y, int width, int height, float force) {
-		super(x - width / 2.0f, y - height / 2.0f, width, height, ResourcesManager.getInstance().wind_region);
+	public WindEntity(float x, float y, int width, int height, float force, GameScene scene) {
+		super(x - width / 2.0f, y - height / 2.0f, width, height, scene.wind_region);
 		mForce = force * WIND_FORCE_CONSTANT;
+		if(force < 0) {
+			mSprite.setFlippedHorizontal(true);
+		}
 		mScene.registerThoughtfulEntity(this);
 	}
 
@@ -62,7 +67,7 @@ public class WindEntity extends PhysicsEntity implements ThoughtfulEntity {
 	@Override
 	public void think(float timeElapsed) {
 		for(PhysicsEntity p : touchedThings)
-			p.mBody.applyForceToCenter(mForce, 0);
+			p.applyForceToCenter(mForce, 0);
 	}
 	
 	
